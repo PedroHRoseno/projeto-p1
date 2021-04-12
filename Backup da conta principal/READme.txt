@@ -1,0 +1,1 @@
+Copia do arquivo, com o admin criptografado

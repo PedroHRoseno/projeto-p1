@@ -1,0 +1,185 @@
+
+    elif escolha == "3":
+        sair == True
+        print("#-----------Programa finalizado----------#")
+        wait = input("Pressione enter para continuar ->")
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+"""
+def criptografia():
+    '''
+    Essa função captura os numeros que vão ser usados na criptografia e descriptografia
+    '''
+    lista = []
+    chave = ''
+    with open('chavePublica.txt','r',encoding="utf-8") as f:
+        chaves = f.readlines()
+        for numero in chaves:
+            for caracter in numero:
+                if caracter != ' ':
+                    chave += caracter
+                else:
+                    lista.append(int(chave))
+                    chave = ''
+        lista.append(int(chave))
+
+    return lista
+def escrever_arquivo(arquivo,dicionario): #usu_teste.txt
+    '''
+    Essa função escreve o arquivo criptografado e descriptografado
+    '''
+    lista = criptografia()
+    string = ''
+    arquivoAberto = open(arquivo,'w')
+    # X é a chave do dicionario e o Y é o valor
+    for x,y in dicionario.items():
+        for elemento in x:
+            crip = str(ord(elemento) ** lista[0] % lista[1])
+            string += crip
+            string += '*'
+        arquivoAberto.write(string + " ")
+        string = ""
+        for elemento in y:
+            for caractere in elemento:
+                print(caractere)
+                crip = str(ord(caractere) ** lista[0] % lista[1])
+                string += crip
+                string += '*'
+            arquivoAberto.write(string + " ")
+                    
+            
+        '''
+        for elemento in y:
+            crip = str(ord(elemento) ** lista[0] % lista[1])
+            string += crip
+            string += '*'
+            n += 1
+        arquivoAberto.write(string + "\n")
+        '''
+
+            
+            
+
+def criptografia(arquivo):
+    lista = []
+    string = ""
+    chavePblc = open("chavePublica.txt", "r")
+    chaveP =  chavePblc.readlines()
+    for y in chaveP:
+        y += " "
+        for j in y:
+            if not(j == " "):
+                string += j
+            else:
+                lista.append(int(string))
+                string = ""
+
+    chavePblc.close()
+                
+    arquivoAberto = open(arquivo, "r")
+    listaCaracteres = arquivoAberto.readlines()
+    escrever = ""
+    for caractere in listaCaracteres:
+        for elemento in caractere:
+            if not(elemento == "\n"):
+                criptografar = str(ord(elemento) ** lista[0] % lista[1])
+                escrever += criptografar + "*"
+            else:
+                arquivoAberto2 = open("usuarios2.txt", "w")
+                arquivoAberto2.write(escrever)
+                arquivoAberto2.close()
+    arquivoAberto.close()
+    
+def descriptografia():
+    lista = []
+    chave = ''
+    with open('chavePrivada.txt','r',encoding="utf-8") as f:
+        chaves = f.readlines()
+        for numero in chaves:
+            for caracter in numero:
+                if caracter != ' ':
+                    chave += caracter
+                else:
+                    lista.append(int(chave))
+                    chave = ''
+        lista.append(int(chave))
+
+    return lista
+
+def ler_arquivo(arquivo):
+    lista = descriptografia()
+    arquivoAberto = open(arquivo, "r", encoding="utf-8")
+    numeros = arquivoAberto.read()
+    escrever = ""
+    for numero in numeros:
+        if not(numero == "*"):
+            cript = chr(int(numero)** lista[0] % lista[1])
+            escrever += cript
+        else:
+            arquivoAberto2 = open("usuarios2.txt", "w")
+            arquivoAberto2.write(escrever)
+            arquivoAberto2.close()
+    arquivAberto.close()
+            
+        
+                    
+        
+    '''
+    lista = []
+    string = ""
+    chavePvd = open("chavePrivada.txt", "r", encoding='utf-8')
+    chaveP =  chavePvd.readlines()
+    for y in chaveP:
+        y += " "
+        print(y)
+        for j in y:
+            if not(j == " "):
+                string += j
+            else:
+                lista.append(int(string))
+                string = ""
+    x = int(lista[0]) 
+    y = int(lista[1])
+
+    arquivoAberto = open(arquivo, "r")
+    numeros = arquivoAberto.read()
+    escrever = ""
+    for numero in numeros:
+        if not(numero == "*"):
+            cript = chr(int(numero)** x % y)
+            escrever += cript
+        else:
+            arquivoAberto2 = open("usuarios2.txt", "w")
+            arquivoAberto2.write(escrever)
+            '''
+
+def lerArquivo(arquivo):
+    dic_contas = {}
+    listaContas = []
+    palavraTemp = ""
+    arquivoAberto = open(arquivo, "r")
+    listaPalavras = arquivoAberto.readlines()
+    for elemento in listaPalavras:
+        temp = elemento.strip("\n").split(";")
+        listaContas.append(temp)
+
+    for y in listaContas:
+        dic_contas[y[0]] = y[1]
+
+    return dic_contas
+
+
+
+
+if __name__ == "__main__":
+    criptografar_dicionario(USUARIOS, "usuarios.txt")
+    d, n = recuperar_chave("chavePrivada.txt")
+    arq = open("usuarios.txt", 'r')
+    linha = arq.readline()
+    while linha != '':
+        info = linha.split(' ')
+        for item in info:
+            print(decifrar_string(item, d, n))
+        linha = arq.readline()
+"""
+
